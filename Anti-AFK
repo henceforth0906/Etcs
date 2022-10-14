@@ -56,6 +56,13 @@ local function SendWebhook()
     syn.request(Result)
 end
 
+if ANTIAFKISRUNNING_123qwe_asdzxc_iMHence then
+    SendNotification("Anti-AFK is already running!", 3)
+    while true do wait() end
+else
+    getgenv().ANTIAFKISRUNNING_123qwe_asdzxc_iMHence = true
+end
+
 LocalPlayer.Idled:Connect(function()
     VirtualUser:CaptureController()
     VirtualUser:ClickButton2(Vector2.new())
