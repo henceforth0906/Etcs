@@ -1,5 +1,4 @@
 local CoreGui = game:GetService("CoreGui")
-local a, b, c
 
 local PumpkinESPholder = Instance.new("Folder")
 PumpkinESPholder.Name = "yes"
