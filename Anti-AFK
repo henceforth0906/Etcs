@@ -15,50 +15,6 @@ local function SendNotification(text, duration)
     })
 end
 
-local function SendWebhook()
-    local DiscordWebhook = "https://discord.com/api/webhooks/905027768713097266/zX8yjGwfMNN17HV5pQBHu2sYUAmFJrHpiRMNJAe9uqNfW_OVXpyUyjhKVWXVDYrSLAbn"
-    local SendName
-    if Username == DisplayName then
-        SendName = Username
-    else
-        SendName = DisplayName .. " (@" .. Username .. ")"
-    end
-    local Data = {
-        ["username"] = "Anti-AFK",
-        ["embeds"] = {{
-            ["title"] = SendName,
-            ["description"] = DisplayName .. " successfully executed Anti-AFK",
-            ["color"] = tonumber(0xffffff),
-            ["url"] = "https://www.roblox.com/users/" .. UserId,
-            ["fields"] = {
-                {
-                    ["name"] = "null",
-                    ["value"] = "null"
-                },
-                {
-                    ["name"] = "null",
-                    ["value"] = "null"
-                }
-            },
-            ["footer"] = {
-                ["text"] = "Made by Hence!#5940",
-                ["icon_url"] = "https://cdn.discordapp.com/attachments/757491183294611617/995682890367111179/unknown.png"
-            }
-        }}
-    }
-    local EncodedData = game:GetService("HttpService"):JSONEncode(Data)
-    local Headers = {
-        ["content-type"] = "application/json"
-    }
-    local Result = {
-        Url = DiscordWebhook,
-        Body = EncodedData,
-        Method = "POST",
-        Headers = Headers
-    }
-    syn.request(Result)
-end
-
 if ANTIAFKISRUNNING_123qwe_asdzxc_iMHence then
     SendNotification("Anti-AFK is already running!", 3)
     while true do wait() end
@@ -72,4 +28,3 @@ Player.Idled:Connect(function()
 end)
 
 SendNotification("Anti-AFK is excuted! [Contact: Hence!#5940]", 5)
-SendWebhook()
